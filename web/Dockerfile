@@ -1,5 +1,7 @@
 # base image
-FROM node:22-alpine AS base
+# Security: Pinned to node:22.15.0-alpine to address CVE-2025-23085
+# (Node.js worker thread SIGTERM memory leak DoS in < 22.15.0)
+FROM node:22.15.0-alpine AS base
 LABEL maintainer="takatost@gmail.com"
 
 # if you located in China, you can use aliyun mirror to speed up
