@@ -13,6 +13,9 @@ dependencies = [
     "cachetools~=5.3.0",
     "celery~=5.6.2",
     "charset-normalizer>=3.4.4",
+    # Security fix CVE-2024-26130: cryptography < 42.0.4 has NULL pointer dereference
+    # in PKCS12 parsing that causes DoS. Explicit constraint ensures patched version.
+    "cryptography>=42.0.4",
     "flask~=3.1.2",
     "flask-compress>=1.17,<1.24",
     "flask-cors~=6.0.0",
