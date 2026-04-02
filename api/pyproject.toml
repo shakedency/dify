@@ -33,6 +33,9 @@ dependencies = [
     "jieba==0.42.1",
     "json-repair>=0.55.1",
     "jsonschema>=4.25.1",
+    # Security fix CVE-2024-56326: Jinja2 < 3.1.5 allows sandbox bypass via crafted template.
+    # Flask pulls jinja2 as a transitive dependency; pinning >=3.1.5 ensures safety.
+    "jinja2>=3.1.5",
     "langfuse~=2.51.3",
     "langsmith~=0.7.16",
     "markdown~=3.10.2",
@@ -72,6 +75,9 @@ dependencies = [
     "pyyaml~=6.0.1",
     "readabilipy~=0.3.0",
     "redis[hiredis]~=7.3.0",
+    # Security fix CVE-2024-35195: requests < 2.32.0 leaks proxy credentials on redirect.
+    # Explicit constraint ensures transitive pulls resolve to patched version.
+    "requests>=2.32.2",
     "resend~=2.26.0",
     "sentry-sdk[flask]~=2.55.0",
     "sqlalchemy~=2.0.29",
