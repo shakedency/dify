@@ -69,6 +69,11 @@ dependencies = [
     "pypdfium2==5.6.0",
     "python-docx~=1.2.0",
     "python-dotenv==1.2.2",
+    # Security fix CVE-2024-24762: python-multipart <0.0.7 has unbounded memory
+    # consumption during multipart parsing (HIGH, CVSS 7.5, EPSS 31%)
+    # Explicit pin provides defense-in-depth; starlette>=0.40.0 (PR #4) also
+    # enforces this constraint transitively.
+    "python-multipart>=0.0.7",
     "pyyaml~=6.0.1",
     "readabilipy~=0.3.0",
     "redis[hiredis]~=7.3.0",
