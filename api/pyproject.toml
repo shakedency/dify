@@ -175,6 +175,9 @@ dev = [
     "pytest-timeout>=2.4.0",
     "pytest-xdist>=3.8.0",
     "pyrefly>=0.55.0",
+    # Security fix CVE-2024-6345: setuptools < 70.0.0 allows arbitrary code execution
+    # via specially crafted package index URL. Pinning >=70.0.0 mitigates this risk.
+    "setuptools>=70.0.0",
 ]
 
 ############################################################
