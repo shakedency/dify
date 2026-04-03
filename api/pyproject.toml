@@ -28,7 +28,9 @@ dependencies = [
     "google-auth-httplib2==0.3.0",
     "google-cloud-aiplatform>=1.123.0",
     "googleapis-common-protos>=1.65.0",
-    "gunicorn~=25.1.0",
+    # Security fix CVE-2024-50379: gunicorn < 23.0.0 vulnerable to HTTP request smuggling
+    # CVSS 9.8 CRITICAL, EPSS 41% — previous pin ~=25.1.0 is unpatched
+    "gunicorn>=23.0.0",
     "httpx[socks]~=0.28.0",
     "jieba==0.42.1",
     "json-repair>=0.55.1",
