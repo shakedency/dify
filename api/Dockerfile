@@ -1,5 +1,7 @@
 # base image
-FROM python:3.12-slim-bookworm AS base
+# SECURITY: Pinned to python:3.12.10-slim-bookworm to address CVE-2025-0938
+# (CPython tarfile path traversal — arbitrary file overwrite during extraction)
+FROM python:3.12.10-slim-bookworm AS base
 
 WORKDIR /app/api
 
