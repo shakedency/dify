@@ -1,5 +1,7 @@
 # base image
-FROM node:22-alpine AS base
+# SECURITY: Pinned to node:22-alpine3.21 to address CVE-2025-31115
+# (liblzma/xz-utils heap buffer overflow in Alpine < 3.21)
+FROM node:22-alpine3.21 AS base
 LABEL maintainer="takatost@gmail.com"
 
 # if you located in China, you can use aliyun mirror to speed up
